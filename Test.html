@@ -16,6 +16,15 @@
 
 
 <script type="text/javascript">
+    var f = function(t) {
+        alert(t.key);
+    };
+    
+    var lookup = 
+         [ {key: 11, action: f}
+         , {key: 12, action: f}
+         ];
+    lookup[1].action;
     function initButtons() {
         var msg = document.getElementById('lightBulbColorKey');
         document.body.addEventListener('keydown', function (e) {
