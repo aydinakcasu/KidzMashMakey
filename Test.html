@@ -1,3 +1,41 @@
-Test
-<h1>dasfadf</h1>
-dasf
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Makey Makey Demo</title>
+</head>
+
+<body style=" width:500px;" onload="initButtons()">
+<div id="lightBulbColorKey" />
+  
+  
+  </body>
+
+</html>
+
+
+<script type="text/javascript">
+function initButtons() {
+    var msg = document.getElementById('lightBulbColorKey');
+    document.body.addEventListener('keydown', function (e) {
+        msg.textContent = 'keydown:' + e.keyCode;
+        switch (e.keyCode) {
+            case 49: // 1
+                break;
+            case 81: // Q
+                //case 9:  // Tab
+                break;
+            case 65: // 1
+                //case 20: // Caps
+                break;
+
+            case 90: // Z
+                //case 16: // Shift
+                break;
+            default:
+                break;
+        }
+    });
+}
+</script>
