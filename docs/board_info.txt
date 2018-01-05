@@ -1,0 +1,17 @@
+
+
+/* ------------ TOP ------------
+        ArrowUp
+ArrowLeft           ArrowRight            ' '    click
+        ArrowDown
+*/
+/* ------------ Bottom ------------
+w                                         Mouse Up
+a                                         Mouse Down
+s                                         Mouse Left
+d                                         Mouse Right
+f                                         Mouse Right Click
+g                                         Mouse Left Click  
+                 GGGGGGround
+*/
+
