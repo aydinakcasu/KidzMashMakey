@@ -29,16 +29,23 @@
             </td>
         </tr>
         <tr>
-            <td id="childWin" width="20%">
+            <td id="childWin">
                 <div>
                     <button id="child_0" class="button button5">_</button>
                 </div>
 
             </td>
-            <td style="font-size: 100px; text-align: center;" width="50%">
-                <label id="winner"></label>
+            <td style="font-size: 100px; text-align: center;">
+                <svg id="winner0" width="651px" height="434px" viewBox="0 0 651 434">
+                    <path stroke="#C00000" stroke-width="8" fill="#FFC000" d="M307.3125,3.6875C319.125,2.375,330.9375,9.3125,336.875,22.4375C339.3125,27.6875,340.5,33.5625,340.5,39.4375L340.5,145.125 592.125,145.125C600.0625,145.125,606.5,152.8125,606.5,162.25L606.5,230.8125C606.5,240.25,600.0625,247.9375,592.125,247.9375L340.5,247.9375 340.5,353.5625C340.5,373.4375,326.9375,389.5,310.1875,389.5C305.1875,389.5,300.1875,388.125,295.8125,385.25L3.5,196.375 295.8125,7.875C299.5,5.5,303.375,4.125,307.3125,3.6875z"
+                    />
+                </svg>
+                <svg id="winner1" width="651px" height="439px" viewBox="0 0 651 439">
+                    <path stroke="#C00000" stroke-width="8" fill="#FFC000" d="M299.875,3.5C304.875,3.5,309.875,4.9375,314.25,7.8125L606.5,196.6875 314.25,385.1875C299.5,394.625,281.125,388.125,273.1875,370.625C270.75,365.375,269.5625,359.5,269.5625,353.625L269.5625,247.9375 17.9375,247.9375C10,247.9375,3.5,240.25,3.5,230.8125L3.5,162.25C3.5,152.8125,10,145.125,17.9375,145.125L269.5625,145.125 269.5625,39.4375C269.5625,19.625,283.125,3.5,299.875,3.5z"
+                    />
+                </svg>
             </td>
-            <td id="adultWin" width="20%">
+            <td id="adultWin">
                 <div>
                     <button id="adult_0" class="button button5">Up</button>
                 </div>
@@ -70,6 +77,7 @@ displayUpdate = function () {
     $("#winner").text("");
     $("#childWin").css("background", "white");
     $("#adultWin").css("background", "white");
+    $("[id^=winner]").hide();
 
     // -- player1 
     $("#player1").css("background"
@@ -77,7 +85,7 @@ displayUpdate = function () {
     $("#child_0").css("background", (child.pass) ? green : yellow);
 
     if(child.pass) {
-        $("#winner").text("<---");
+        $("#winner0 ").show();
         $("#childWin").css("background", "green");
         $("#adultWin").css("background", red);
         adult.pass = false;
@@ -99,7 +107,7 @@ displayUpdate = function () {
     }
     $("#player2info").text(player2info)
     if(adult.pass) {
-        $("#winner").text("--->");
+        $("#winner1").show();
         $("#childWin").css("background", red);
         $("#adultWin").css("background", "green");
         child.pass = false;
