@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Kidzmash</title>
+    <script src="lib/jquery.min.js"></script>
+    <script src="tools/tools.js" type="text/javascript"></script>
+    <script src="game.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body onload="keyPressInitialize()">
+
+    <div id="welcome">Welcome to the Kidzmash game </div>
+    <button onclick="adult.reset();child.reset();this.blur();">Reset</button>
+
+    <table border="1">
+        <tr>
+            <td width="20%">
+                <div id="player1">player1 (_)</div>
+            </td>
+            <td width="60%">
+            </td>
+            <td width="20%">
+                <div>
+                    <label id="player2">player2 (a,s,d,f)</label>
+                    <label id="player2info"></label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td id="childWin" width="20%">
+                <div>
+                    <button id="child_0" class="button button5">_</button>
+                </div>
+
+            </td>
+            <td style="font-size: 100px; text-align: center;" width="50%">
+                <label id="winner"></label>
+            </td>
+            <td id="adultWin" width="20%">
+                <div>
+                    <button id="adult_0" class="button button5">Up</button>
+                </div>
+                <div>
+                    <button id="adult_1" class="button button5">Down</button>
+                </div>
+                <div>
+                    <button id="adult_2" class="button button5">Right</button>
+                </div>
+                <div>
+                    <button id="adult_3" class="button button5">Left</button>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+    <label id="debugHtml" />
+
+    <label id="distance" style="">sss</label>
+    <label id="element" style="width:900px;">sss</label>
+</body>
+
+<script>
+displayUpdate = function () {
+    var green = "#77f177";
+    var yellow = "rgb(255, 255, 87)" ;  
+    var red = "red";
+    
+    $("#winner").text("");
+    $("#childWin").css("background", "white");
+    $("#adultWin").css("background", "white");
+
+    // -- player1 
+    $("#player1").css("background"
+        , (child.pass) ? green : yellow);
+    $("#child_0").css("background", (child.pass) ? green : yellow);
+
+    if(child.pass) {
+        $("#winner").text("<---");
+        $("#childWin").css("background", "green");
+        $("#adultWin").css("background", red);
+        adult.pass = false;
+    }    
+
+    // -- player2
+    $("#player2").css("background"
+        , (adult.pass === true)
+            ? green : (adult.pass === false) ? red : yellow);
+
+    var player2info = adult.matchCount + "/" + adult.expectCount;
+    switch (adult.matchCount) {
+        case 0:
+            $("[id^=adult_]").css("background", yellow);
+            break;
+        default:
+            $("#adult_"+(adult.matchCount-1)).css("background", green);
+            break
+    }
+    $("#player2info").text(player2info)
+    if(adult.pass) {
+        $("#winner").text("--->");
+        $("#childWin").css("background", red);
+        $("#adultWin").css("background", "green");
+        child.pass = false;
+    }
+}
+
+displayUpdate();
+</script>
+
+<script>
+(function() {
+    
+    var mX, mY, distance,
+        $distance = $('#distance'),
+        $element  = $('#element');
+
+    function calculateDistance(elem, mouseX, mouseY) {
+        return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left+(elem.width()/2)), 2) + Math.pow(mouseY - (elem.offset().top+(elem.height()/2)), 2)));
+    }
+
+    $(document).mousemove(function(e) {  
+        mX = e.pageX;
+        mY = e.pageY;
+        distance = calculateDistance($element, mX, mY);
+        $distance.text(distance);         
+    });
+})();
+
+</script>
