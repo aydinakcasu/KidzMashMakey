@@ -6,6 +6,17 @@ function dump(obj) {
 Array.prototype.dump = dump;
 Object.prototype.dump = dump;
 
+// ---------------------------------------------
+function alertInternal(obj) {
+    obj = obj || this || {};
+    alert(obj.dump());
+    return obj;
+}
+Array.prototype.alert = alertInternal;
+Object.prototype.alert = alertInternal;
+
+// ---------------------------------------------
+
 function listToDictionary(list) {
     list = list || this || [];
     var dictionary = {};
