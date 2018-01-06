@@ -9,7 +9,6 @@ var child
         name: "child"
         , pass: null
         , match: ""
-        //, expect: "w,"
         , expect: " ,"
         , reset: function () {
             this.pass = null;
@@ -39,7 +38,6 @@ var adult
         , pass: null
         , match: ""
         , matchCount: 0
-        //, expect: "a,s,d,f,"
         , expect: "ArrowUp,ArrowDown,ArrowRight,ArrowLeft,"
         , expectCount: 4
         , reset: function () {
@@ -68,7 +66,6 @@ var adult
         }
     };
 
-//add.call(adult, c);
 var displayInitializeUpdate = null;;
 var displayWinnerUpdate = null;;
 
