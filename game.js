@@ -14,7 +14,6 @@ var child
         , reset: function () {
             this.pass = null;
             this.match = "";
-            checkWinner();
         }
         , add: function (c) {
             this.match += c + ',';
@@ -30,7 +29,7 @@ var child
             return function () {
                 tthis.reset();
                 tthis.add(this.key);
-                checkWinner();
+                displayWinner();
             }
         }
     };
@@ -64,15 +63,19 @@ var adult
             var tthis = this;
             return function () {
                 tthis.add(this.key);
-                checkWinner();
+                displayWinner();
             }
         }
     };
 
 //add.call(adult, c);
+var displayInitializeUpdate = null;;
 var displayWinnerUpdate = null;;
 
-function checkWinner() {
+function displayInitialize() {
+    if (displayInitializeUpdate != null) displayInitializeUpdate();
+}
+function displayWinner() {
     if (displayWinnerUpdate != null) displayWinnerUpdate();
 }
 function reset() {
@@ -80,6 +83,7 @@ function reset() {
     adult.reset();
     adult.shuffle();
 
+    displayInitialize();
     displayWinner();
 }
 

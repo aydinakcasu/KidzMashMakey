@@ -69,6 +69,17 @@
 </body>
 
 <script>
+
+displayInitializeUpdate= function () {
+    var list = adult.expectList;
+    for(var i=0; i<list.length; i++)
+    {
+        var item = list[i];
+        var nameOnly = item.replace("Arrow","");
+        $("#adult_"+i).text(nameOnly);
+    }
+};
+
 displayWinnerUpdate = function () {
     var green = "#77f177";
     var yellow = "rgb(255, 255, 87)" ;  
