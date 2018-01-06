@@ -45,6 +45,8 @@ var adult
             this.match = "";
             this.matchCount = 0;
             checkWinner();
+        , shuffle: function () {
+            this.expect = shuffleArray(this.expectList).join() + ",";
         }
         , add: function (c) {
             if (this.pass == false) this.reset();
