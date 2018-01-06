@@ -6,6 +6,8 @@ ArrowLeft           ArrowRight            ' '    click
         ArrowDown
 */
 /* ------------ Bottom ------------
+                .... G5V ...
+
 w                                         Mouse Up
 a                                         Mouse Down
 s                                         Mouse Left
