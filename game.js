@@ -75,8 +75,8 @@ var adult
         }
     }.initialize();
 
-var displayInitializeUpdate = null;;
-var displayWinnerUpdate = null;;
+var displayInitializeUpdate = null;
+var displayWinnerUpdate = null;
 
 function displayInitialize() {
     if (displayInitializeUpdate != null) displayInitializeUpdate();
