@@ -74,9 +74,9 @@
 
     </table>
     <label id="debugHtml" />
-
+<!--
     <label id="distance" style="">sss</label>
-    <label id="element" style="width:900px;">sss</label>
+    <label id="element" style="width:900px;">sss</label>-->
 </body>
 
 <script>
@@ -147,22 +147,22 @@ displayWinner();
 </script>
 
 <script>
-(function() {
+// (function() {
     
-    var mX, mY, distance,
-        $distance = $('#distance'),
-        $element  = $('#element');
+//     var mX, mY, distance,
+//         $distance = $('#distance'),
+//         $element  = $('#element');
 
-    function calculateDistance(elem, mouseX, mouseY) {
-        return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left+(elem.width()/2)), 2) + Math.pow(mouseY - (elem.offset().top+(elem.height()/2)), 2)));
-    }
+//     function calculateDistance(elem, mouseX, mouseY) {
+//         return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left+(elem.width()/2)), 2) + Math.pow(mouseY - (elem.offset().top+(elem.height()/2)), 2)));
+//     }
 
-    $(document).mousemove(function(e) {  
-        mX = e.pageX;
-        mY = e.pageY;
-        distance = calculateDistance($element, mX, mY);
-        $distance.text(distance);         
-    });
-})();
+//     $(document).mousemove(function(e) {  
+//         mX = e.pageX;
+//         mY = e.pageY;
+//         distance = calculateDistance($element, mX, mY);
+//         $distance.text(distance);         
+//     });
+// })();
 
 </script>
