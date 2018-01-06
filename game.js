@@ -40,16 +40,21 @@ var adult
         , matchCount: 0
         , expect: "ArrowUp,ArrowDown,ArrowRight,ArrowLeft,"
         , expectCount: 4
+        , initialize: function () {
+            this.expectList = this.expect.slice(0, -1).split(",");
+            this.expectCount = this.expectList.length;
+            this.shuffle();
+            return this;
+        }
         , reset: function () {
             this.pass = null;
             this.match = "";
             this.matchCount = 0;
-            checkWinner();
+        }
         , shuffle: function () {
             this.expect = shuffleArray(this.expectList).join() + ",";
         }
         , add: function (c) {
-            if (this.pass == false) this.reset();
             this.match += c + ',';
 
             var matchStart = this.expect.startsWith(this.match);
@@ -62,11 +67,13 @@ var adult
         , check: function () {
             var tthis = this;
             return function () {
+                if (tthis.pass == false) tthis.reset();
+
                 tthis.add(this.key);
                 displayWinner();
             }
         }
-    };
+    }.initialize();
 
 var displayInitializeUpdate = null;;
 var displayWinnerUpdate = null;;
