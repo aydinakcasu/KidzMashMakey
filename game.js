@@ -2,8 +2,47 @@ function debug(text) {
     var msg = document.getElementById('message');
     msg.textContent = text;
 }
+var states
+    = { 
+        initializing: 0  
+        , waiting: 1
+        , playing: 2
+        , winner: 3
 
-// asx!, s!, as., asd+
+        // Enter name
+        // Waiting to Start
+        // Collecting answers
+        // Winner, lock down
+
+
+        /*
+
+        New Set
+        - users enter names
+        New Game
+        - users can press buttons
+        A Winner?
+        - mark confirms
+        New Game again....
+
+        until final..
+
+
+        
+        New Set:
+            Enter names
+            Start Game
+            playing
+            Winner 
+            Final Winner
+
+        */
+    };
+var state = states.initializing;
+
+
+
+
 var child
     = {
         name: "child"
@@ -44,6 +83,7 @@ var child
             }
         }
     }.initialize();
+
 var adult
     = {
         name: "adult"
@@ -76,7 +116,6 @@ var adult
             else this.matchCount++;
             var match = (this.expect == this.match);
             if (match == true) this.pass = true;
-
         }
         , check: function () {
             var tthis = this;
@@ -112,18 +151,20 @@ function resetSet() {
     adult.name = (!name)? "adult": name;
 
     displayInitialize();
+    state = states.waiting;
 }
-function reset() {
+function resetGame() {
     child.reset();
     adult.reset();
     adult.shuffle();
 
     displayInitialize();
     displayWinner();
+    state = states.playing;
 }
 
 var lookup =
-    [{ key: 'x', action: function () { alert("DONE:"); } }
+    [{ key: 'x', action: function () { } }
 
         , { key: 'ArrowUp', action: adult.check() }
         , { key: 'ArrowLeft', action: adult.check() }
@@ -141,14 +182,14 @@ var lookup =
         , { key: 'g', action: function () { } }
     ];
 
-var dictionary = listToDictionary(lookup);
 var dictionary = lookup.listToDictionary();
 
 function keyPressInitialize() {
     var debugHtml = $("#debugHtml");
     document.body.addEventListener
-        ('keydown'
+        ('keydown' 
         , function (e) {
+            if(state != states.playing) return;
             debugHtml.text('keydown:' + e.key + e.keyCode);
             var keyObject = dictionary[e.key];
             if (keyObject == null) { return; }
