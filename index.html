@@ -13,17 +13,16 @@
 
     <div id="welcome">Welcome to the Kidzmash game </div>
     <button onclick="reset();this.blur();">Reset</button>
-
     <table border="0" width="100%">
         <tr>
             <td width="20%">
-                <div id="player1">player1 (_)</div>
+                <div id="childName">player1 (_)</div>
             </td>
             <td width="60%">
             </td>
             <td width="20%">
                 <div>
-                    <label id="player2">player2 (a,s,d,f)</label>
+                    <label id="adultName">player2 (a,s,d,f)</label>
                     <label id="player2info"></label>
                 </div>
             </td>
@@ -78,6 +77,8 @@ displayInitializeUpdate= function () {
         var nameOnly = item.replace("Arrow","");
         $("#adult_"+i).text(nameOnly);
     }
+    $("#childName").text(child.name);
+    $("#adultName").text(adult.name);
 };
 
 displayWinnerUpdate = function () {
