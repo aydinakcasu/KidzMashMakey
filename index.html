@@ -13,8 +13,8 @@
 
     <div id="welcome">Welcome to the Kidzmash game </div>
     <button onclick="reset();this.blur();">Reset</button>
-    <table border="0" width="100%">
-        <tr>
+    <table border="1" width="100%">
+        <tr style="font-size: 50px; text-align: center;">
             <td width="20%">
                 <div id="childName">player1 (_)</div>
             </td>
@@ -27,7 +27,7 @@
                 </div>
             </td>
         </tr>
-        <tr>
+        <tr style="font-size: 100px; text-align: center;">
             <td>
                 <div id="childScore">3333</div>
             </td>
@@ -38,11 +38,10 @@
             </td>
         </tr>
         <tr>
-            <td id="childWin">
+            <td id="childWin" style="vertical-align: top; ">
                 <div>
                     <button id="child_0" class="button button5">_</button>
                 </div>
-
             </td>
             <td style="font-size: 100px; text-align: center;">
                 <label id="winnerName"></label>
@@ -56,7 +55,8 @@
                     />
                 </svg>
             </td>
-            <td id="adultWin">
+
+            <td id="adultWin" style="vertical-align: top; float: right;">
                 <div>
                     <button id="adult_0" class="button button5">Up</button>
                 </div>
