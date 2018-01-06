@@ -70,10 +70,10 @@ var adult
     };
 
 //add.call(adult, c);
-var displayUpdate = null;;
+var displayWinnerUpdate = null;;
 
 function checkWinner() {
-    if (displayUpdate != null) displayUpdate();
+    if (displayWinnerUpdate != null) displayWinnerUpdate();
 }
 child.reset();
 adult.reset();
