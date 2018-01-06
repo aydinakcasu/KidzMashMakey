@@ -28,6 +28,16 @@
             </td>
         </tr>
         <tr>
+            <td>
+                <div id="childScore">3333</div>
+            </td>
+            <td>
+            </td>
+            <td>
+                <div id="adultScore">3333</div>
+            </td>
+        </tr>
+        <tr>
             <td id="childWin">
                 <div>
                     <button id="child_0" class="button button5">_</button>
@@ -98,6 +108,7 @@ displayWinnerUpdate = function () {
         , (child.pass) ? green : yellow);
     $("#child_0").css("background", (child.pass) ? green : yellow);
 
+    $("#childScore").text(child.score);
     if (child.pass) {
         $("#winnerName").text(child.name);
         $("#winner_0").show();
@@ -121,6 +132,7 @@ displayWinnerUpdate = function () {
             break
     }
     $("#player2info").text(player2info)
+    $("#adultScore").text(adult.score);
     if (adult.pass) {
         $("#winnerName").text(adult.name);
         $("#winner_1").show();

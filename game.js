@@ -7,9 +7,14 @@ function debug(text) {
 var child
     = {
         name: "child"
+        , score: 0
         , pass: null
         , match: ""
         , expect: " ,"
+        , initialize: function () {
+            this.score = 0;
+            return this;
+        }
         , reset: function () {
             this.pass = null;
             this.match = "";
@@ -28,19 +33,22 @@ var child
             return function () {
                 tthis.reset();
                 tthis.add(this.key);
+                tthis.score += (tthis.pass ? 1 : 0);
                 displayWinner();
             }
         }
-    };
+    }.initialize();
 var adult
     = {
         name: "adult"
+        , score: 0
         , pass: null
         , match: ""
         , matchCount: 0
         , expect: "ArrowUp,ArrowDown,ArrowRight,ArrowLeft,"
         , expectCount: 4
         , initialize: function () {
+            this.score = 0;
             this.expectList = this.expect.slice(0, -1).split(",");
             this.expectCount = this.expectList.length;
             this.shuffle();
@@ -68,8 +76,8 @@ var adult
             var tthis = this;
             return function () {
                 if (tthis.pass == false) tthis.reset();
-
                 tthis.add(this.key);
+                tthis.score += (tthis.pass ? 1 : 0);
                 displayWinner();
             }
         }
