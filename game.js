@@ -33,7 +33,13 @@ var child
             return function () {
                 tthis.reset();
                 tthis.add(this.key);
-                tthis.score += (tthis.pass ? 1 : 0);
+                if (tthis.pass) {
+                    if (confirm('Is this correct'))
+                        tthis.score++;
+                    else {
+                        tthis.pass = false;
+                    }
+                }
                 displayWinner();
             }
         }
@@ -77,7 +83,13 @@ var adult
             return function () {
                 if (tthis.pass == false) tthis.reset();
                 tthis.add(this.key);
-                tthis.score += (tthis.pass ? 1 : 0);
+                if (tthis.pass) {
+                    if (confirm('Is this correct'))
+                        tthis.score++;
+                    else {
+                        tthis.pass = false;
+                    }
+                }
                 displayWinner();
             }
         }
