@@ -75,8 +75,13 @@ var displayWinnerUpdate = null;;
 function checkWinner() {
     if (displayWinnerUpdate != null) displayWinnerUpdate();
 }
-child.reset();
-adult.reset();
+function reset() {
+    child.reset();
+    adult.reset();
+    adult.shuffle();
+
+    displayWinner();
+}
 
 var lookup =
     [{ key: 'x', action: function () { alert("DONE:"); } }
