@@ -11,8 +11,9 @@
 
 <body onload="keyPressInitialize()">
 
-    <div id="welcome">Welcome to the Kidzmash game </div>
-    <button onclick="reset();this.blur();">Reset</button>
+    <div id="welcome" style="font-size: 20px;">Welcome to the Kidzmash game </div>
+
+
     <table border="1" width="100%">
         <tr style="font-size: 50px; text-align: center;">
             <td width="20%">
@@ -73,8 +74,11 @@
         </tr>
 
     </table>
-    <label id="debugHtml" />
-<!--
+    
+    <br/><button style="font-size: 30px;" onclick="resetSet();">New Set</button>
+
+    <br/><br/><br/><button style="font-size: 30px;" onclick="reset();this.blur();">New Game</button>
+    <br/><label id="debugHtml" />
     <!--
     <label id="distance" style="">sss</label>
     <label id="element" style="width:900px;">sss</label>-->

@@ -92,6 +92,15 @@ function displayInitialize() {
 function displayWinner() {
     if (displayWinnerUpdate != null) displayWinnerUpdate();
 }
+function resetSet() {
+    var name = prompt("Player1: Please enter your name", "");
+    child.name = (!name)? "child": name;
+
+    var name = prompt("Player2: Please enter your name", "");
+    adult.name = (!name)? "adult": name;
+
+    displayInitialize();
+}
 function reset() {
     child.reset();
     adult.reset();
