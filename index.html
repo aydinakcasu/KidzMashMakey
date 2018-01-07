@@ -44,7 +44,7 @@
                     <button id="child_0" class="button button5">_</button>
                 </div>
             </td>
-            <td style="font-size: 100px; text-align: center;">
+            <td id="winningSet" style="font-size: 100px; text-align: center;">
                 <label id="winnerName"></label>
 
                 <svg id="winner_0" width="651px" height="434px" viewBox="0 0 651 434">
@@ -107,6 +107,8 @@ displayWinnerUpdate = function () {
     $("#childWin").css("background", "white");
     $("#adultWin").css("background", "white");
     $("[id^=winner_]").hide();
+    $("#winningSet").css("background", "white");
+
 
     // -- player1 
     var childPass = child.pass && child.verified;
@@ -121,12 +123,15 @@ displayWinnerUpdate = function () {
         $("#childWin").css("background", "green");
         $("#adultWin").css("background", red);
         adult.pass = false;
+        if(child.score == winningScore)
+            $("#winningSet").css("background", green);
     }
 
     // -- player2
+    var adultPass = adult.pass && adult.verified;
     $("#player2").css("background"
-        , (adult.pass === true)
-            ? green : (adult.pass === false) ? red : yellow);
+        , (adultPass === true)
+            ? green : (adultPass === false) ? red : yellow);
 
     var player2info = adult.matchCount + "/" + adult.expectCount;
     switch (adult.matchCount) {
@@ -145,6 +150,8 @@ displayWinnerUpdate = function () {
         $("#childWin").css("background", red);
         $("#adultWin").css("background", "green");
         child.pass = false;
+        if(adult.score == winningScore)
+            $("#winningSet").css("background", green);
     }
 }
 

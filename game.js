@@ -40,7 +40,7 @@ var states
     };
 var state = states.initializing;
 
-
+var winningScore = 5;
 
 
 var child
