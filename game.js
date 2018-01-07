@@ -151,6 +151,10 @@ function resetGame() {
     displayInitialize();
     displayWinner();
 }
+var buttonKeys =
+    [{ key: 'Shift', action: resetSet }
+        , { key: 'Control', action: resetGame }
+    ].listToDictionary();
 
 var makeyKeys =
     [{ key: 'x', action: function () { } }
@@ -177,6 +181,10 @@ function keyPressInitialize() {
         ('keydown'
         , function (e) {
             //debugHtml.text('keydown:' + e.key + e.keyCode);
+            var keyObject = buttonKeys[e.key];
+            if (keyObject != null)
+                keyObject.action();
+
             if (state != states.playing) return;
 
             var keyObject = makeyKeys[e.key];
