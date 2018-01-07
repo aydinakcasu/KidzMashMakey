@@ -48,6 +48,7 @@ var child
         name: "child"
         , score: 0
         , pass: null
+        , verified: false
         , match: ""
         , expect: " ,"
         , initialize: function () {
@@ -56,6 +57,7 @@ var child
         }
         , reset: function () {
             this.pass = null;
+            this.verified = false;
             this.match = "";
         }
         , add: function (c) {
@@ -102,6 +104,7 @@ var adult
         }
         , reset: function () {
             this.pass = null;
+            this.verified = false;
             this.match = "";
             this.matchCount = 0;
         }
