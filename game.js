@@ -55,7 +55,7 @@ var child
                     tthis.verified = true;
                     state = states.winner;
                 }
-                else tthis.reset(); 
+                else tthis.reset();
             }
             displayWinner();
         }
@@ -129,6 +129,8 @@ function displayWinner() {
 }
 function resetSet() {
     state = states.waiting;
+    child.reset();
+    adult.reset();
     displayInitialize();
     displayWinner();
 
@@ -143,6 +145,9 @@ function resetSet() {
     }, 0);
 }
 function resetGame() {
+    if (child.score == winningScore) return;
+    if (adult.score == winningScore) return;
+
     child.reset();
     adult.reset();
     adult.shuffle();
