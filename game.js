@@ -8,40 +8,10 @@ var states
         , waiting: 1
         , playing: 2
         , winner: 3
-
-        // Enter name
-        // Waiting to Start
-        // Collecting answers
-        // Winner, lock down
-
-
-        /*
-
-        New Set
-        - users enter names
-        New Game
-        - users can press buttons
-        A Winner?
-        - mark confirms
-        New Game again....
-
-        until final..
-
-
-
-        New Set:
-            Enter names
-            Start Game
-            playing
-            Winner 
-            Final Winner
-
-        */
     };
 var state = states.initializing;
 
 var winningScore = 5;
-
 
 var child
     = {
@@ -84,7 +54,7 @@ var child
                     tthis.score++;
                     tthis.verified = true;
                 }
-                else tthis.reset();
+                else tthis.reset(); 
             }
             displayWinner();
         }
