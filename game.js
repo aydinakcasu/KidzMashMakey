@@ -74,15 +74,19 @@ var child
             return function () {
                 tthis.reset();
                 tthis.add(this.key);
-                if (tthis.pass) {
-                    if (confirm('Is this correct'))
-                        tthis.score++;
-                    else {
-                        tthis.pass = false;
-                    }
-                }
                 displayWinner();
+                setTimeout(function () { tthis.confirm(tthis); }, 0);
             }
+        }
+        , confirm: function (tthis) {
+            if (tthis.pass) {
+                if (confirm('Is this correct')) {
+                    tthis.score++;
+                    tthis.verified = true;
+                }
+                else tthis.reset();
+            }
+            displayWinner();
         }
     }.initialize();
 
@@ -125,15 +129,20 @@ var adult
             return function () {
                 if (tthis.pass == false) tthis.reset();
                 tthis.add(this.key);
-                if (tthis.pass) {
-                    if (confirm('Is this correct'))
-                        tthis.score++;
-                    else {
-                        tthis.pass = false;
-                    }
-                }
                 displayWinner();
+                displayWinner();
+                setTimeout(function () { tthis.confirm(tthis); }, 0);
             }
+        }
+        , confirm: function (tthis) {
+            if (tthis.pass) {
+                if (confirm('Is this correct')) {
+                    tthis.score++;
+                    tthis.verified = true;
+                }
+                else tthis.reset();
+            }
+            displayWinner();
         }
     }.initialize();
 
