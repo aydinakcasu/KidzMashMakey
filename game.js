@@ -53,6 +53,7 @@ var child
                 if (confirm('Is this correct')) {
                     tthis.score++;
                     tthis.verified = true;
+                    state = states.winner;
                 }
                 else tthis.reset(); 
             }
@@ -109,6 +110,7 @@ var adult
                 if (confirm('Is this correct')) {
                     tthis.score++;
                     tthis.verified = true;
+                    state = states.winner;
                 }
                 else tthis.reset();
             }
@@ -136,6 +138,8 @@ function resetSet() {
 
         var name = prompt("Player2: Please enter your name", "");
         adult.name = (!name) ? "adult" : name;
+        displayInitialize();
+        displayWinner();
     }, 0);
 }
 function resetGame() {
