@@ -152,7 +152,7 @@ function resetGame() {
     displayWinner();
 }
 
-var lookup =
+var makeyKeys =
     [{ key: 'x', action: function () { } }
 
         , { key: 'ArrowUp', action: adult.check() }
@@ -169,20 +169,19 @@ var lookup =
         , { key: 'd', action: adult.check() }
         , { key: 'f', action: adult.check() }
         , { key: 'g', action: function () { } }
-    ];
-
-var dictionary = lookup.listToDictionary();
+    ].listToDictionary();
 
 function keyPressInitialize() {
     var debugHtml = $("#debugHtml");
     document.body.addEventListener
         ('keydown'
         , function (e) {
-            if (state != states.playing) return;
             //debugHtml.text('keydown:' + e.key + e.keyCode);
-            var keyObject = dictionary[e.key];
-            if (keyObject == null) { return; }
-            keyObject.action();
+            if (state != states.playing) return;
+
+            var keyObject = makeyKeys[e.key];
+            if (keyObject != null)
+                keyObject.action();
         }
         );
 }
