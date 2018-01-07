@@ -91,7 +91,7 @@ displayInitializeUpdate = function () {
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
         var nameOnly = item.replace("Arrow", "");
-        $("#adult_" + i).text(nameOnly);
+        $("#adult_" + i).text((state == states.playing)? nameOnly: "???");
     }
     $("#childName").text(child.name);
     $("#adultName").text(adult.name);

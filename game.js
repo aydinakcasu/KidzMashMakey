@@ -3,8 +3,8 @@ function debug(text) {
     msg.textContent = text;
 }
 var states
-    = { 
-        initializing: 0  
+    = {
+        initializing: 0
         , waiting: 1
         , playing: 2
         , winner: 3
@@ -28,7 +28,7 @@ var states
         until final..
 
 
-        
+
         New Set:
             Enter names
             Start Game
@@ -156,23 +156,26 @@ function displayWinner() {
     if (displayWinnerUpdate != null) displayWinnerUpdate();
 }
 function resetSet() {
-    var name = prompt("Player1: Please enter your name", "");
-    child.name = (!name)? "child": name;
-
-    var name = prompt("Player2: Please enter your name", "");
-    adult.name = (!name)? "adult": name;
-
-    displayInitialize();
     state = states.waiting;
+    displayInitialize();
+    displayWinner();
+
+    setTimeout(function () {
+        var name = prompt("Player1: Please enter your name", "");
+        child.name = (!name) ? "child" : name;
+
+        var name = prompt("Player2: Please enter your name", "");
+        adult.name = (!name) ? "adult" : name;
+    }, 0);
 }
 function resetGame() {
     child.reset();
     adult.reset();
     adult.shuffle();
 
+    state = states.playing;
     displayInitialize();
     displayWinner();
-    state = states.playing;
 }
 
 var lookup =
@@ -199,10 +202,10 @@ var dictionary = lookup.listToDictionary();
 function keyPressInitialize() {
     var debugHtml = $("#debugHtml");
     document.body.addEventListener
-        ('keydown' 
+        ('keydown'
         , function (e) {
-            if(state != states.playing) return;
-            debugHtml.text('keydown:' + e.key + e.keyCode);
+            if (state != states.playing) return;
+            //debugHtml.text('keydown:' + e.key + e.keyCode);
             var keyObject = dictionary[e.key];
             if (keyObject == null) { return; }
             keyObject.action();
