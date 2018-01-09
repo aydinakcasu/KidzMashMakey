@@ -7,7 +7,7 @@
     padding: 60px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    display: block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
@@ -15,4 +15,6 @@
 
 .button5 {
     border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
