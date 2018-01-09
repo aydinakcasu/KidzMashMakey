@@ -157,8 +157,9 @@ function resetGame() {
     displayWinner();
 }
 var buttonKeys =
-    [{ key: 'Shift', action: resetSet }
-        , { key: 'Control', action: resetGame }
+    [   
+        //{ key: 'Shift', action: resetSet },
+        { key: 'Control', action: resetGame }
     ].listToDictionary();
 
 var makeyKeys =
