@@ -116,11 +116,13 @@ displayWinnerUpdate = function () {
     $("#child_0").css("background", (child.pass) ? green : yellow);
 
     $("#childScore").text(child.score);
+    if(child.pass)
+    {
+       $("#winnerName").text(child.name);
+       $("#winner_0").show();
+    }
     if (childPass) {
-        $("#winnerName").text(child.name);
-        $("#winner_0").show();
         $("#childWin").css("background", "green");
-        $("#adultWin").css("background", red);
         adult.pass = false;
         if(child.score == winningScore)
             $("#winningSet").css("background", green);
@@ -143,10 +145,12 @@ displayWinnerUpdate = function () {
     }
     $("#player2info").text(player2info)
     $("#adultScore").text(adult.score);
-    if (adultPass) {
+    if(adult.pass)
+    {
         $("#winnerName").text(adult.name);
         $("#winner_1").show();
-        $("#childWin").css("background", red);
+    }
+    if (adultPass) {
         $("#adultWin").css("background", "green");
         child.pass = false;
         if(adult.score == winningScore)
