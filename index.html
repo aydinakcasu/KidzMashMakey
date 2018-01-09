@@ -85,12 +85,21 @@
 
 <script>
 
+
 displayInitializeUpdate = function () {
     var list = adult.expectList;
     for (var i = 0; i < list.length; i++) {
         var item = list[i];
         var nameOnly = item.replace("Arrow", "");
-        $("#adult_" + i).text((state == states.playing)? nameOnly: "???");
+        var lut = "";
+        switch(nameOnly) 
+        {
+            case "Up": lut = "Apple"; break;
+            case "Down": lut = "Pepper"; break;
+            case "Right": lut = "Banana"; break;
+            case "Left": lut = "Pear" ; break;
+        }
+        $("#adult_" + i).text((state == states.playing)? lut: "???");
     }
     $("#childName").text(child.name);
     $("#adultName").text(adult.name);
